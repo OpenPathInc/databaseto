@@ -1,25 +1,30 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OpenPath.Reporting.Common.Abstract;
 using OpenPath.Reporting.Core.Interfaces;
 using OpenPath.Reporting.Core.Models;
+using System.Collections.Generic;
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace OpenPath.Reporting.Web.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class AccountController : ControllerBase
     {
-        private IUserService _userService;
 
-        public UsersController(IUserService userService)
+
+        private IIdentityService _identityService;
+
+        public AccountController(IIdentityService identityService)
         {
-            _userService = userService;
+            _identityService = identityService;
         }
 
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _userService.Authenticate(model);
+            var response = _identityService.Authenticate(model);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -31,7 +36,7 @@ namespace OpenPath.Reporting.Web.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _userService.GetAll();
+            var users = _identityService.GetAll();
             return Ok(users);
         }
     }

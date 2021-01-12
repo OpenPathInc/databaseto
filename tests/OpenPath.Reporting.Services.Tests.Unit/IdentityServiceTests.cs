@@ -13,6 +13,7 @@ namespace OpenPath.Reporting.Services.Tests.Unit
         [TestCase()]
         public void Test1()
         {
+
             Assert.Pass();
         }
     }

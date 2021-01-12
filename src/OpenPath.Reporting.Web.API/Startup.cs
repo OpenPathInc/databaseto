@@ -12,7 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OpenPath.Reporting.Core.Interfaces;
 using OpenPath.Reporting.Domain.Entities;
+using OpenPath.Reporting.Services;
 using OpenPath.Reporting.Web.API.Extensions;
 using OpenPath.Reporting.Web.API.Middleware;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
@@ -45,6 +47,7 @@ namespace OpenPath.Reporting.Web.API
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IIdentityService, IdentityService>();
             services.AddControllers();
             services.AddAuthorization();
             //  Configure the web API to use OAuth Identity server
