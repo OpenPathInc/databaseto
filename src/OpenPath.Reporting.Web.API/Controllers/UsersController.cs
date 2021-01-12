@@ -6,7 +6,7 @@ using OpenPath.Reporting.Core.Models;
 namespace OpenPath.Reporting.Web.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
