@@ -47,6 +47,8 @@ namespace OpenPath.Reporting.Web.API
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddControllers();
             services.AddAuthorization();
@@ -91,6 +93,8 @@ namespace OpenPath.Reporting.Web.API
             app.UseMiddleware<ExceptionLogMiddleware>();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
