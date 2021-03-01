@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  openpath.reporting.web.api:
-    image: ${DOCKER_REGISTRY-}openpathreportingwebapi
-    build:
-      context: .
-      dockerfile: src/OpenPath.Reporting.Web.API/Dockerfile
