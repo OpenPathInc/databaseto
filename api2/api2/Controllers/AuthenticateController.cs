@@ -100,6 +100,7 @@ namespace api2.Controllers
             return Ok(new Response { Status = "Success", Message = "Admin User created successfully!" });
         }
 
+        [Authorize(Roles = UserRoles.Super)]
         [HttpPost]
         [Route("register-super")]
         public async Task<IActionResult> RegisterSuper([FromBody] RegisterModel model)
