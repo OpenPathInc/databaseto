@@ -18,7 +18,7 @@ namespace api2.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly UserManager<Authentication.ApplicationUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
 
@@ -100,7 +100,7 @@ namespace api2.Controllers
             return Ok(new Response { Status = "Success", Message = "Admin User created successfully!" });
         }
 
-        [Authorize(Roles = UserRoles.Super)]
+        
         [HttpPost]
         [Route("register-super")]
         public async Task<IActionResult> RegisterSuper([FromBody] RegisterModel model)
