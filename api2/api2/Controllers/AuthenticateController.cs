@@ -34,6 +34,17 @@ namespace api2.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await userManager.FindByNameAsync(model.Username);
+            if (!await roleManager.RoleExistsAsync(UserRoles.Super))
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.Super));
+            if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+            if (model.Username == "default_super" && await roleManager.RoleExistsAsync(UserRoles.Super))
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.Super);
+                Console.WriteLine("default_super login");
+            }
+
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
                 var userRoles = await userManager.GetRolesAsync(user);
@@ -100,7 +111,7 @@ namespace api2.Controllers
             return Ok(new Response { Status = "Success", Message = "Admin User created successfully!" });
         }
 
-        
+        [Authorize(Roles = UserRoles.Super)]
         [HttpPost]
         [Route("register-super")]
         public async Task<IActionResult> RegisterSuper([FromBody] RegisterModel model)

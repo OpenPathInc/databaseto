@@ -9,9 +9,10 @@ namespace api2.Authentication
 {
     public static class ApplicationDbInitializer
     {
-        public static void SeedUsers(UserManager<ApplicationUser> userManager)
+         public static void SeedUsers(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             Console.WriteLine(userManager.FindByNameAsync("default_super").Result);
+
             if (userManager.FindByNameAsync("default_super").Result == null)
             {
                 ApplicationUser user = new ApplicationUser
@@ -27,10 +28,21 @@ namespace api2.Authentication
                 {
                     Console.WriteLine("Username is default_super");
                     Console.WriteLine("Password is " + password);
-                    userManager.AddToRoleAsync(user, UserRoles.Super).Wait();
+                    Console.WriteLine(userManager.GetRolesAsync(user));
+                    if (!roleManager.RoleExistsAsync(UserRoles.Admin).Result)
+                    {
+                         roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+                    }
+                    if (!roleManager.RoleExistsAsync(UserRoles.Super).Result)
+                    {
+                         roleManager.CreateAsync(new IdentityRole(UserRoles.Super));                        
+                    }
                 }
             }
         }
+
+
 
         private static string generatePassword(UserManager<ApplicationUser> userManager)
         {
