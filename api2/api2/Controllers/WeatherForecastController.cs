@@ -6,36 +6,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api2.Controllers
-{
-    [Authorize]
+namespace api2.Controllers {
+
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
-    {
-        private static readonly string[] Summaries = new[]
-        {
+    public class WeatherForecastController : DatabaseToBaseController {
+
+        private static readonly string[] Summaries = new[] {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
+        public WeatherForecastController(
+            ILoggerFactory loggerFactory
+        ) : base(loggerFactory) {
+
+            // empty
+
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+        public IEnumerable<WeatherForecast> Get() {
+
+            var randomNumberGenerator = (Random)null;
+            var temperatureCNumber = 0;
+            var summaryNumber = 0;
+
+            try {
+
+                Logger.LogInformation("Get request for weather forecast received");
+
+                randomNumberGenerator = new Random();
+
+                Logger.LogInformation("Returning weather forecast");
+
+                temperatureCNumber = randomNumberGenerator.Next(-20, 55);
+                summaryNumber = randomNumberGenerator.Next(Summaries.Length);
+
+                throw new Exception("Ahhhhh! There was an error!");
+
+                return Enumerable
+                    .Range(1, 5)
+                    .Select(
+                        index => new WeatherForecast {
+                            Date = DateTime.Now.AddDays(index),
+                            TemperatureC = temperatureCNumber,
+                            Summary = Summaries[summaryNumber]
+                        }
+                    )
+                    .ToArray();
+
+            }
+            catch(Exception ex) {
+
+                Logger.LogError("There was a fatal error, soft message returned to user", temperatureCNumber, summaryNumber);
+
+                return new List<WeatherForecast> {
+                    new WeatherForecast { ErrorDescription = ex.Message}
+                };
+
+            }
+
         }
     }
 }

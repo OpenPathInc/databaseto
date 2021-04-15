@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hKlpouR7iDhLB6YhTeW2pvQ6UvZZe02QiAoI4/AnnLrtcUvL81mbd74v86meTyw61uN6JcqfGAQQNsq7Nrk9gA==",
+  "dgSpecHash": "Z5fqoNihQFWtY4aoSkn6CBNXL4M1J6pZR1G2J+xbQuFQOZBZ0/2HaCGHnHPsJC/F2pOomcixQl/FqEdH3QnXfg==",
   "success": true,
   "projectFilePath": "C:\\src\\databaseto\\api2\\api2\\api2.csproj",
   "expectedPackageFiles": [
@@ -141,7 +141,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\j\\.nuget\\packages\\vsxmd\\1.4.5\\vsxmd.1.4.5.nupkg.sha512"
   ],
   "logs": []
 }

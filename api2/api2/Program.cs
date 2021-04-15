@@ -51,24 +51,27 @@ namespace api2
 
                 })
                 .UseNLog()
-                //.Sen(sentry => {
+                .ConfigureWebHostDefaults(webBuilder => {
 
-                //    sentry.Release = Open.Path.Global.Environment.Version;
-                //    sentry.MaxBreadcrumbs = 200;
-                //    sentry.MinimumBreadcrumbLevel = Microsoft.Extensions.Logging.LogLevel.Information; // Debug and higher are stored as breadcrumbs (default is Info)
-                //    sentry.MinimumEventLevel = Microsoft.Extensions.Logging.LogLevel.Error; // Error and higher is sent as event (default is Error)
-                //    sentry.Dsn = "https://0047f607e2b44322ac53c2f1a91d64c5@o556010.ingest.sentry.io/5686339";
-                //    sentry.AttachStacktrace = true;
-                //    //sentry.SendDefaultPii = true; // Send Personal Identifiable information like the username of the user logged in to the device
-                //    sentry.DecompressionMethods = System.Net.DecompressionMethods.GZip;
-                //    sentry.MaxQueueItems = 100;
-                //    sentry.ConfigureScope(
-                //        scope =>
-                //        scope.SetTag("Application", "Transaction API")
-                //    );
-                //    sentry.IncludeActivityData = true;
+                    webBuilder.UseSentry(o => {
 
-                //})
+                        o.Dsn = "https://249357a0278047a28dc760381b3983c3@o556010.ingest.sentry.io/5704172";
+                        o.Release = "0.1";
+                        o.MaxBreadcrumbs = 200;
+                        o.MinimumBreadcrumbLevel = LogLevel.Information; // Debug and higher are stored as breadcrumbs (default is Info)
+                        o.MinimumEventLevel = LogLevel.Error; // Error and higher is sent as event (default is Error)
+                        o.AttachStacktrace = true;
+                        o.DecompressionMethods = System.Net.DecompressionMethods.GZip;
+                        o.MaxQueueItems = 100;
+                        o.ConfigureScope(
+                            scope =>
+                            scope.SetTag("Application", "DatabaseTo API")
+                        );
+                        o.IncludeActivityData = true;
+
+                    });
+
+                })
                 .ConfigureWebHostDefaults(webBuilder => {
                     webBuilder.UseStartup<Startup>();
                 });

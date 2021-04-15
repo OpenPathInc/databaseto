@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>api2</name>
+    </assembly>
+    <members>
+        <member name="T:api2.Account.UserAccount">
+            <summary>
+            This class is used to manage the users name and email.
+            </summary>
+        </member>
+        <member name="P:api2.Account.UserAccount.Username">
+            <summary>
+            This is the users account username.
+            </summary>
+        </member>
+        <member name="P:api2.Account.UserAccount.Email">
+            <summary>
+            This is the users email address.
+            </summary>
+        </member>
+        <member name="M:api2.Account.UserAccount.#ctor(System.String,System.String)">
+            <summary>
+            This initates the user account with their username and email.
+            </summary>
+            <param name="username">The users Username.</param>
+            <param name="email">The users email address.</param>
+        </member>
+    </members>
+</doc>

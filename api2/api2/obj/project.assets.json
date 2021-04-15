@@ -2062,6 +2062,12 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Vsxmd/1.4.5": {
+        "type": "package",
+        "build": {
+          "build/Vsxmd.targets": {}
+        }
       }
     }
   },
@@ -7021,6 +7027,25 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Vsxmd/1.4.5": {
+      "sha512": "mvTZKIhKUFvcjYv/p9dxgSFHrAlNFIemT3ai1XAFV4yJYGu/6e73NgzfHwhDi0QevuYURVdd+p088CG6KQFENg==",
+      "type": "package",
+      "path": "vsxmd/1.4.5",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/Vsxmd.targets",
+        "tools/linux-musl-x64/Vsxmd",
+        "tools/linux-x64/Vsxmd",
+        "tools/osx-x64/Vsxmd",
+        "tools/win-x64/Vsxmd.exe",
+        "tools/win-x86/Vsxmd.exe",
+        "vsxmd.1.4.5.nupkg.sha512",
+        "vsxmd.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -7035,7 +7060,8 @@
       "NLog.Web.AspNetCore >= 4.12.0",
       "Sentry >= 3.3.1",
       "Sentry.AspNetCore >= 3.3.1",
-      "Sentry.NLog >= 3.3.1"
+      "Sentry.NLog >= 3.3.1",
+      "Vsxmd >= 1.4.5"
     ]
   },
   "packageFolders": {
@@ -7125,6 +7151,12 @@
           "Sentry.NLog": {
             "target": "Package",
             "version": "[3.3.1, )"
+          },
+          "Vsxmd": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.4.5, )"
           }
         },
         "imports": [
