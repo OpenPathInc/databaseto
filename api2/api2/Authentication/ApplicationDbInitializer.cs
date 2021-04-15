@@ -5,61 +5,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace api2.Authentication
-{
-    public static class ApplicationDbInitializer
-    {
-         public static void SeedUsers(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
-        {
+namespace api2.Authentication {
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class ApplicationDbInitializer {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="roleManager"></param>
+        public static void SeedUsers(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager
+        ) {
+
             Console.WriteLine(userManager.FindByNameAsync("default_super").Result);
 
-            if (userManager.FindByNameAsync("default_super").Result == null)
-            {
-                ApplicationUser user = new ApplicationUser
-                {
+            if (userManager.FindByNameAsync("default_super").Result == null) {
+
+                ApplicationUser user = new ApplicationUser {
                     UserName = "default_super",
                     Email = "default_super@databaseto.com",
                     SecurityStamp = Guid.NewGuid().ToString(),
                 };
+
                 var password = generatePassword(userManager);
+
                 IdentityResult result = userManager.CreateAsync(user, password).Result;
 
-                if (result.Succeeded)
-                {
+                if (result.Succeeded) {
+
                     Console.WriteLine("Username is default_super");
                     Console.WriteLine("Password is " + password);
                     Console.WriteLine(userManager.GetRolesAsync(user));
-                    if (!roleManager.RoleExistsAsync(UserRoles.Admin).Result)
-                    {
-                         roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
 
+                    if (!roleManager.RoleExistsAsync(UserRoles.Admin).Result) {
+                        roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
                     }
-                    if (!roleManager.RoleExistsAsync(UserRoles.Super).Result)
-                    {
-                         roleManager.CreateAsync(new IdentityRole(UserRoles.Super));                        
+                    if (!roleManager.RoleExistsAsync(UserRoles.Super).Result) {
+                        roleManager.CreateAsync(new IdentityRole(UserRoles.Super));
                     }
+
                 }
+
             }
+
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <returns></returns>
+        private static string generatePassword(UserManager<ApplicationUser> userManager) {
 
-
-        private static string generatePassword(UserManager<ApplicationUser> userManager)
-        {
+            // setting the base attributes
             var options = userManager.Options.Password;
+            var length = options.RequiredLength;
+            var nonAlphanumeric = options.RequireNonAlphanumeric;
+            var digit = options.RequireDigit;
+            var lowercase = options.RequireLowercase;
+            var uppercase = options.RequireUppercase;
 
-            int length = options.RequiredLength;
+            // initalizing classes
+            var password = new StringBuilder();
+            var random = new Random();
 
-            bool nonAlphanumeric = options.RequireNonAlphanumeric;
-            bool digit = options.RequireDigit;
-            bool lowercase = options.RequireLowercase;
-            bool uppercase = options.RequireUppercase;
-
-            StringBuilder password = new StringBuilder();
-            Random random = new Random();
-
-            while (password.Length < length)
-            {
+            while (password.Length < length) {
                 char c = (char)random.Next(32, 126);
 
                 password.Append(c);
