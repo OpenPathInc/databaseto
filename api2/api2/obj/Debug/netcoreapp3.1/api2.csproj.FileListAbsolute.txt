@@ -127,8 +127,6 @@ C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.csprojAssemblyReference.cache
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.AssemblyInfoInputs.cache
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.AssemblyInfo.cs
-C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.csproj.CoreCompileInputs.cache
-C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.MvcApplicationPartsAssemblyInfo.cache
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.RazorTargetAssemblyInfo.cache
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.csproj.CopyComplete
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\staticwebassets\api2.StaticWebAssets.Manifest.cache
@@ -136,3 +134,13 @@ C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\staticwebassets\api2.StaticW
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.dll
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.pdb
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.genruntimeconfig.cache
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\nlog.config
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.AspNetCore.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.Extensions.Logging.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.NLog.dll
+C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.csproj.CoreCompileInputs.cache
+C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.MvcApplicationPartsAssemblyInfo.cache

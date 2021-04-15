@@ -77,7 +77,7 @@ namespace JWTAuthentication
                 endpoints.MapControllers();
             });
 
-            ApplicationDbInitializer.SeedUsers(userManager);
+            //ApplicationDbInitializer.SeedUsers(userManager);
 
         }
     }
