@@ -145,3 +145,12 @@ C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.NLog.dll
 C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\readme.xml
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.csproj.CoreCompileInputs.cache
 C:\src\databaseto\api2\api2\obj\Debug\netcoreapp3.1\api2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\nlog.config
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\readme.xml
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.AspNetCore.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.Extensions.Logging.dll
+C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.NLog.dll

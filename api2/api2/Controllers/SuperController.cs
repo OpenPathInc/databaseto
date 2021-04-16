@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace api2.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.Super)]
     [Route("api/[controller]")]
     [ApiController]
     /// <summary>
