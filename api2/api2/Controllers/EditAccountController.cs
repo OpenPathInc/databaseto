@@ -16,12 +16,21 @@ namespace api2.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    /// <summary>
+    /// This is the constructor for our EditAccountController Class.
+    /// </summary>
     public class EditAccountController : ControllerBase
     {
         private readonly UserManager<Authentication.ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
 
+        /// <summary>
+        /// This is the constructor for our EditAccountController Class.
+        /// </summary>
+        /// <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class.</param>
+        /// <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class.</param>
+        /// <param name="configuration">The configuration.</param>
         public EditAccountController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             this.userManager = userManager;
@@ -31,6 +40,10 @@ namespace api2.Controllers
 
         [HttpPut]
         [Route("change-password")]
+        /// <summary>
+        /// This method changes user's password after authentication.
+        /// </summary>
+        /// <param name="model">A ChangePasswordModel instance for the ChangePassword function.</param>
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
         {
             string username = User.FindFirst(ClaimTypes.Name)?.Value;
@@ -50,6 +63,10 @@ namespace api2.Controllers
 
         [HttpPut]
         [Route("change-email")]
+        /// <summary>
+        /// This method changes user's email after authentication.
+        /// </summary>
+        /// <param name="model">A ChangeEmailModel instance for the ChangeEmail function.</param>
         public async Task<IActionResult> ChangeEmail([FromBody] ChangeEmailModel model)
         {
             string username = User.FindFirst(ClaimTypes.Name)?.Value;
@@ -69,6 +86,10 @@ namespace api2.Controllers
 
         [HttpPut]
         [Route("change-username")]
+        /// <summary>
+        /// This method changes user's username after authentication.
+        /// </summary>
+        /// <param name="model">A ChangeUsername instance for the ChangeUsername function.</param>
         public async Task<IActionResult> ChangeUsername([FromBody] ChangeUsername model)
         {
             string username = User.FindFirst(ClaimTypes.Name)?.Value;

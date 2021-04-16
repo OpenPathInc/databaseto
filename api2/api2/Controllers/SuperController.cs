@@ -14,10 +14,16 @@ namespace api2.Controllers
     [Authorize(Roles = UserRoles.Super)]
     [Route("api/[controller]")]
     [ApiController]
+    /// <summary>
+    /// This creates the DatabaseToBaseController Class
+    /// </summary>
     public class SuperController : ControllerBase
     {
         private readonly UserManager<Authentication.ApplicationUser> userManager;
 
+        /// <summary>
+        /// This is the constructor for the SuperController Class
+        /// </summary>
         public SuperController(UserManager<ApplicationUser> userManager)
         {
             this.userManager = userManager;
@@ -26,6 +32,9 @@ namespace api2.Controllers
         [Authorize(Roles = UserRoles.Super)]
         [HttpGet]
         [Route("view-all-user-accounts")]
+        /// <summary>
+        /// This method returns a list that contains all the users.
+        /// </summary>
         public List<UserAccount> GetAllUsers()
         {
             List<UserAccount> u = new List<UserAccount>();
