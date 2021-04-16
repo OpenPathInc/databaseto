@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 namespace api2.Authentication {
 
     /// <summary>
-    /// 
+    /// This class initialize the application database
     /// </summary>
     public static class ApplicationDbInitializer {
 
         /// <summary>
-        /// 
+        /// This method create the default_super user with username "default_super" and a random generated password
         /// </summary>
-        /// <param name="userManager"></param>
-        /// <param name="roleManager"></param>
+        /// <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class</param>
+        /// <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class</param>
         public static void SeedUsers(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager
         ) {
 
-            Console.WriteLine(userManager.FindByNameAsync("default_super").Result);
-
+            //check if the default_super already existed
             if (userManager.FindByNameAsync("default_super").Result == null) {
 
+                //create default_super object 
                 ApplicationUser user = new ApplicationUser {
                     UserName = "default_super",
                     Email = "default_super@databaseto.com",
@@ -34,20 +34,24 @@ namespace api2.Authentication {
 
                 var password = generatePassword(userManager);
 
+                //create user
                 IdentityResult result = userManager.CreateAsync(user, password).Result;
 
                 if (result.Succeeded) {
-
+                    // print the username and password
                     Console.WriteLine("Username is default_super");
                     Console.WriteLine("Password is " + password);
                     Console.WriteLine(userManager.GetRolesAsync(user));
 
+                    //create user roles
                     if (!roleManager.RoleExistsAsync(UserRoles.Admin).Result) {
                         roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
                     }
                     if (!roleManager.RoleExistsAsync(UserRoles.Super).Result) {
                         roleManager.CreateAsync(new IdentityRole(UserRoles.Super));
                     }
+
+                    userManager.AddToRoleAsync(user, "Super");
 
                 }
 
@@ -56,10 +60,10 @@ namespace api2.Authentication {
         }
 
         /// <summary>
-        /// 
+        /// Genederate a random password based on UserManager's requirement
         /// </summary>
-        /// <param name="userManager"></param>
-        /// <returns></returns>
+        /// <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class</param>
+        /// <returns>A password string</returns>
         private static string generatePassword(UserManager<ApplicationUser> userManager) {
 
             // setting the base attributes
