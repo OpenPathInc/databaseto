@@ -17,6 +17,9 @@ namespace api2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    /// <summary>
+    /// This initates the AuthenticateController Class
+    /// </summary>
     public class AuthenticateController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -25,6 +28,13 @@ namespace api2.Controllers
         private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// This is the constructor for our AuthenticateController Class.
+        /// </summary>
+        /// <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class.</param>
+        /// <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="loggerFactory">An instance that creates a logger.</param>
         public AuthenticateController(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
@@ -43,6 +53,10 @@ namespace api2.Controllers
 
         [HttpPost]
         [Route("login")]
+        /// <summary>
+        /// This authenticates the login function for our users.
+        /// </summary>
+        /// <param name="model">The LoginModel instance for login fucntion</param>
         public async Task<IActionResult> Login([FromBody] LoginModel model) {
 
             // we need some validation before executing...
@@ -99,6 +113,10 @@ namespace api2.Controllers
         [Authorize(Roles = UserRoles.Super)]
         [HttpPost]
         [Route("register-admin")]
+        /// <summary>
+        /// This autehnticates the create Admin User function.
+        /// </summary>
+        /// <param name="model">The RegisterModel instance for create Admin User function.</param>
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
@@ -131,6 +149,10 @@ namespace api2.Controllers
         [Authorize(Roles = UserRoles.Super)]
         [HttpPost]
         [Route("register-super")]
+        /// <summary>
+        /// This autehnticates the create Super User function.
+        /// </summary>
+        /// <param name="model">The RegisterModel instance for create Super User function.</param>
         public async Task<IActionResult> RegisterSuper([FromBody] RegisterModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
