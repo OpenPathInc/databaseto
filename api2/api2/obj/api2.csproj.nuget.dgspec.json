@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/jonah/Desktop/databaseto/api2/api2/api2.csproj": {}
+  },
+  "projects": {
+    "/Users/jonah/Desktop/databaseto/api2/api2/api2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/jonah/Desktop/databaseto/api2/api2/api2.csproj",
+        "projectName": "api2",
+        "projectPath": "/Users/jonah/Desktop/databaseto/api2/api2/api2.csproj",
+        "packagesPath": "/Users/jonah/.nuget/packages/",
+        "outputPath": "/Users/jonah/Desktop/databaseto/api2/api2/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/jonah/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.9, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.12.0, )"
+            },
+            "Sentry": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Sentry.AspNetCore": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Sentry.NLog": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Vsxmd": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

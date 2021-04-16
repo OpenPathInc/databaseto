@@ -1,0 +1,225 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\src\\databaseto\\Archive\\src\\OpenPath.Reporting.Infrastructure\\OpenPath.Reporting.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\OpenPath.Reporting.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\OpenPath.Reporting.Core.csproj",
+        "projectName": "OpenPath.Reporting.Core",
+        "projectPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\OpenPath.Reporting.Core.csproj",
+        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+        "outputPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/openpathinc/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\OpenPath.Reporting.Domain.csproj": {
+                "projectPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\OpenPath.Reporting.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\OpenPath.Reporting.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\OpenPath.Reporting.Domain.csproj",
+        "projectName": "OpenPath.Reporting.Domain",
+        "projectPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\OpenPath.Reporting.Domain.csproj",
+        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+        "outputPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/openpathinc/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\src\\databaseto\\Archive\\src\\OpenPath.Reporting.Infrastructure\\OpenPath.Reporting.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\src\\databaseto\\Archive\\src\\OpenPath.Reporting.Infrastructure\\OpenPath.Reporting.Infrastructure.csproj",
+        "projectName": "OpenPath.Reporting.Infrastructure",
+        "projectPath": "C:\\src\\databaseto\\Archive\\src\\OpenPath.Reporting.Infrastructure\\OpenPath.Reporting.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+        "outputPath": "C:\\src\\databaseto\\Archive\\src\\OpenPath.Reporting.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/openpathinc/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\OpenPath.Reporting.Core.csproj": {
+                "projectPath": "C:\\src\\databaseto\\Archive\\src\\Lib\\OpenPath.Reporting.Core\\OpenPath.Reporting.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[15.0.5, )"
+            },
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
