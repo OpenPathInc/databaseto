@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace api2.Controllers
 {
@@ -21,18 +22,34 @@ namespace api2.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
+        private readonly ILoggerFactory _loggerFactory;
+        private readonly ILogger _logger;
 
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
-        {
+        public AuthenticateController(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IConfiguration configuration,
+            ILoggerFactory loggerFactory
+        ) {
+
+            _loggerFactory = loggerFactory;
+            _logger = _loggerFactory.CreateLogger<AuthenticateController>();
+
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
+
         }
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
-        {
+        public async Task<IActionResult> Login([FromBody] LoginModel model) {
+
+            // we need some validation before executing...
+
+
+            _logger.LogInformation($"Authenticating user: {model.Username}");
+
             var user = await userManager.FindByNameAsync(model.Username);
             if (!await roleManager.RoleExistsAsync(UserRoles.Super))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Super));
