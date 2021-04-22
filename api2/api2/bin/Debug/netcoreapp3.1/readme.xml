@@ -4,6 +4,41 @@
         <name>api2</name>
     </assembly>
     <members>
+        <member name="T:api2.Account.ChangeEmailModel">
+            <summary>
+            Component model for changing the email
+            </summary>
+        </member>
+        <member name="P:api2.Account.ChangeEmailModel.NewEmail">
+            <summary>
+            This is the new email address
+            </summary>
+        </member>
+        <member name="T:api2.Account.ChangePasswordModel">
+            <summary>
+            Component model for changing the password
+            </summary>
+        </member>
+        <member name="P:api2.Account.ChangePasswordModel.CurrentPassword">
+            <summary>
+            This is the current password 
+            </summary>
+        </member>
+        <member name="P:api2.Account.ChangePasswordModel.NewPassword">
+            <summary>
+            This is the new password
+            </summary>
+        </member>
+        <member name="T:api2.Account.ChangeUsername">
+            <summary>
+            Component model for changing the username
+            </summary>
+        </member>
+        <member name="P:api2.Account.ChangeUsername.NewUsername">
+            <summary>
+            This is the new username
+            </summary>
+        </member>
         <member name="T:api2.Account.UserAccount">
             <summary>
             This class is used to manage the users name and email.
@@ -25,6 +60,93 @@
             </summary>
             <param name="username">The users Username.</param>
             <param name="email">The users email address.</param>
+        </member>
+        <member name="T:api2.Authentication.ApplicationDbContext">
+            <summary>
+            This class create the database context for this application
+            </summary>
+        </member>
+        <member name="M:api2.Authentication.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{api2.Authentication.ApplicationDbContext})">
+            <summary>
+            This method call the parent construtor 
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:api2.Authentication.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            This method use builder to create the database model
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:api2.Authentication.ApplicationDbInitializer">
+            <summary>
+            This class initialize the application database
+            </summary>
+        </member>
+        <member name="M:api2.Authentication.ApplicationDbInitializer.SeedUsers(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole})">
+            <summary>
+            This method create the default_super user with username "default_super" and a random generated password
+            </summary>
+            <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class</param>
+            <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class</param>
+        </member>
+        <member name="M:api2.Authentication.ApplicationDbInitializer.generatePassword(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser})">
+            <summary>
+            Genederate a random password based on UserManager's requirement
+            </summary>
+            <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class</param>
+            <returns>A password string</returns>
+        </member>
+        <member name="T:api2.Authentication.ApplicationUser">
+            <summary>
+            This class is the User class of this application, which is inherited from IdentityUser class in Microsoft.AspNetCore.Identity
+            </summary>
+        </member>
+        <member name="T:api2.Authentication.LoginModel">
+            <summary>
+            This is the login component model 
+            </summary>
+        </member>
+        <member name="P:api2.Authentication.LoginModel.Username">
+            <summary>
+            This is required username 
+            </summary>
+        </member>
+        <member name="P:api2.Authentication.LoginModel.Password">
+            <summary>
+            This is required password 
+            </summary>
+        </member>
+        <member name="T:api2.Authentication.RegisterModel">
+            <summary>
+            This is the register component model 
+            </summary>
+        </member>
+        <member name="P:api2.Authentication.RegisterModel.Username">
+            <summary>
+            This is the required username
+            </summary>
+        </member>
+        <member name="P:api2.Authentication.RegisterModel.Email">
+            <summary>
+            This is the required email address
+            </summary>
+            
+        </member>
+        <member name="P:api2.Authentication.RegisterModel.Password">
+            <summary>
+            This is the required password
+            </summary>
+        </member>
+        <member name="T:api2.Authentication.Response">
+            <summary>
+            This is the component model for api response
+            </summary>
+        </member>
+        <member name="T:api2.Authentication.UserRoles">
+            <summary>
+            This is the class of all user roles
+            </summary>
         </member>
     </members>
 </doc>
