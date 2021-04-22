@@ -17,15 +17,17 @@ namespace api2.Controllers
     /// <summary>
     /// This creates the DatabaseToBaseController Class
     /// </summary>
-    public class SuperController : ControllerBase
+    public class SuperController : DatabaseToBaseController
     {
         private readonly UserManager<Authentication.ApplicationUser> userManager;
 
         /// <summary>
         /// This is the constructor for the SuperController Class
         /// </summary>
-        public SuperController(UserManager<ApplicationUser> userManager)
-        {
+        public SuperController(
+            UserManager<ApplicationUser> userManager,
+            ILoggerFactory loggerFactory
+        ) : base(loggerFactory) {
             this.userManager = userManager;
         }
 
@@ -37,6 +39,8 @@ namespace api2.Controllers
         /// </summary>
         public List<UserAccount> GetAllUsers()
         {
+            Logger.LogInformation("Get request for listing all users");
+
             List<UserAccount> u = new List<UserAccount>();
             
             var users = userManager.Users;
@@ -45,7 +49,8 @@ namespace api2.Controllers
             {
                 u.Add(new UserAccount(user.UserName, user.Email));
             }
-
+            
+            Logger.LogInformation("Returning list of all users");
             return u;
 
         }

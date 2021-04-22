@@ -20,13 +20,11 @@ namespace api2.Controllers
     /// <summary>
     /// This initates the AuthenticateController Class
     /// </summary>
-    public class AuthenticateController : ControllerBase
+    public class AuthenticateController : DatabaseToBaseController
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
-        private readonly ILoggerFactory _loggerFactory;
-        private readonly ILogger _logger;
 
         /// <summary>
         /// This is the constructor for our AuthenticateController Class.
@@ -40,15 +38,10 @@ namespace api2.Controllers
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration,
             ILoggerFactory loggerFactory
-        ) {
-
-            _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.CreateLogger<AuthenticateController>();
-
+        ) : base(loggerFactory) {
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
-
         }
 
         [HttpPost]
@@ -62,7 +55,7 @@ namespace api2.Controllers
             // we need some validation before executing...
 
 
-            _logger.LogInformation($"Authenticating user: {model.Username}");
+            Logger.LogInformation($"Authenticating user: {model.Username}");
 
             var user = await userManager.FindByNameAsync(model.Username);
             if (!await roleManager.RoleExistsAsync(UserRoles.Super))
@@ -119,6 +112,8 @@ namespace api2.Controllers
         /// <param name="model">The RegisterModel instance for create Admin User function.</param>
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
+            Logger.LogInformation($"Authenticating user: {model.Username}");
+
             var userExists = await userManager.FindByNameAsync(model.Username);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
@@ -155,6 +150,8 @@ namespace api2.Controllers
         /// <param name="model">The RegisterModel instance for create Super User function.</param>
         public async Task<IActionResult> RegisterSuper([FromBody] RegisterModel model)
         {
+            Logger.LogInformation($"Authenticating user: {model.Username}");
+            
             var userExists = await userManager.FindByNameAsync(model.Username);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
