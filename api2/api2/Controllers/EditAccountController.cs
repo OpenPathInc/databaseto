@@ -43,16 +43,15 @@ namespace api2.Controllers
             _configuration = configuration;
         }
 
-        [HttpPut]
-        [Route("change-password")]
+        [HttpPost]
+        [Route("update")]
         /// <summary>
         /// This method changes user's password after authentication.
         /// </summary>
-        /// <param name="model">A ChangePasswordModel instance for the ChangePassword function.</param>
-        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
-        {
-            Logger.LogInformation("Get request for changing passwords");
+        /// <param name="model">A Model instance for the updating account information function.</param>
+        public async Task<IActionResult> update([FromBody] T model) {
 
+<<<<<<< HEAD
             string username = User.FindFirst(ClaimTypes.Name)?.Value;
 
             var user = await userManager.FindByNameAsync(username);
@@ -80,10 +79,14 @@ namespace api2.Controllers
         {
 
             Logger.LogInformation("Get request for changing email");
+=======
+            Logger.LogInformation("Get request for updating account information");
+>>>>>>> 53e3b9703bd63b3cd7cf5a8d5f59aecc9a144718
 
             string username = User.FindFirst(ClaimTypes.Name)?.Value;
 
             var user = await userManager.FindByNameAsync(username);
+<<<<<<< HEAD
             if (user == null)
                 return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "User not exists!" });
 
@@ -119,10 +122,26 @@ namespace api2.Controllers
             if (result.Succeeded)
             {
                 return Ok(new Response { Status = "Success", Message = "username changed successfully!" });
+=======
+            if (user == null) {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+            }
+            IdentityResult result;
+            if (model.NewPassword != null) {
+                result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            } else if (model.NewEmail != null) {
+                result = await userManager.SetEmailAsync(user, model.NewEmail);
+            } else if (model.NewUsername != null) {
+                result = await userManager.SetUserNameAsync(user, model.NewUsername);
+            }
+            if (result.Succeeded) {
+                return Ok(new Response { Status = "Success", Message = "Account modified successfully!" });
+>>>>>>> 53e3b9703bd63b3cd7cf5a8d5f59aecc9a144718
             }
 
             Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Modify account fail!" }); ;
+
         }
 
 
