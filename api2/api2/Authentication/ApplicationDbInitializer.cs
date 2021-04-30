@@ -41,7 +41,6 @@ namespace api2.Authentication {
                     // print the username and password
                     Console.WriteLine("Username is default_super");
                     Console.WriteLine("Password is " + password);
-                    Console.WriteLine(userManager.GetRolesAsync(user));
 
                     //create user roles
                     if (!roleManager.RoleExistsAsync(UserRoles.Admin).Result) {
@@ -50,9 +49,6 @@ namespace api2.Authentication {
                     if (!roleManager.RoleExistsAsync(UserRoles.Super).Result) {
                         roleManager.CreateAsync(new IdentityRole(UserRoles.Super));
                     }
-
-                    userManager.AddToRoleAsync(user, "Super");
-
                 }
 
             }

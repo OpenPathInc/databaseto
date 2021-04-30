@@ -148,5 +148,47 @@
             This is the class of all user roles
             </summary>
         </member>
+        <member name="M:api2.Controllers.AuthenticateController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This is the constructor for our AuthenticateController Class.
+            </summary>
+            <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class.</param>
+            <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class.</param>
+            <param name="configuration">The configuration.</param>
+            <param name="loggerFactory">An instance that creates a logger.</param>
+        </member>
+        <member name="T:api2.Controllers.DatabaseToBaseController">
+            <summary>
+            This creates the DatabaseToBaseController Class.
+            </summary>
+        </member>
+        <member name="F:api2.Controllers.DatabaseToBaseController._loggerFactory">
+            <summary>
+            An instance that creates logger for us.
+            </summary>
+        </member>
+        <member name="P:api2.Controllers.DatabaseToBaseController.Logger">
+            <summary>
+            A logger that can show us messages about our project.
+            </summary>
+        </member>
+        <member name="M:api2.Controllers.DatabaseToBaseController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This is the constructor for the DatabaseToBaseController Class
+            </summary>
+        </member>
+        <member name="M:api2.Controllers.EditAccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This is the constructor for our EditAccountController Class.
+            </summary>
+            <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class.</param>
+            <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:api2.Controllers.SuperController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This is the constructor for the SuperController Class
+            </summary>
+        </member>
     </members>
 </doc>

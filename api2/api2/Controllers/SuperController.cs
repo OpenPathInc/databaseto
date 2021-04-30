@@ -8,6 +8,9 @@ using api2.Account;
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace api2.Controllers
 {
@@ -33,26 +36,51 @@ namespace api2.Controllers
 
         [Authorize(Roles = UserRoles.Super)]
         [HttpGet]
-        [Route("view-all-user-accounts")]
+        [Route("users")]
         /// <summary>
         /// This method returns a list that contains all the users.
         /// </summary>
-        public List<UserAccount> GetAllUsers()
+        public IActionResult GetAllUsers()
         {
             Logger.LogInformation("Get request for listing all users");
 
-            List<UserAccount> u = new List<UserAccount>();
-            
+            int count = Int32.Parse(Request.Query["count"]);
+
+            Console.WriteLine(count);
+
+            int page = Int32.Parse(Request.Query["page"]);
+
+            Console.WriteLine(page);
+
             var users = userManager.Users;
 
-            foreach(var user in users)
-            {
-                u.Add(new UserAccount(user.UserName, user.Email));
-            }
-            
-            Logger.LogInformation("Returning list of all users");
-            return u;
+            int total = users.Count();
 
+            Console.WriteLine(total);
+
+            var items = users.Skip((page - 1) * count).Take(count).ToList();
+
+
+            Logger.LogInformation("Returning list of all users");
+
+            return Ok(new Payload
+            {
+                Version = "0.1",
+                count = count,
+                page = page,
+                total = total,
+
+                last_page = "https://localhost:44353/api/super/users?count=10&page=" + (page-1),
+
+                next_page = "https://localhost:44353/api/super/users?count=10&page=" + (page + 1),
+
+                results = items,
+
+
+
+
+            });
         }
+
     }
 }

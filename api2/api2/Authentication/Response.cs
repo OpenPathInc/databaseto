@@ -1,4 +1,7 @@
-﻿namespace api2.Authentication
+﻿using api2.Account;
+using System.Collections.Generic;
+
+namespace api2.Authentication
 {
     /// <summary>
     /// This is the component model for api response

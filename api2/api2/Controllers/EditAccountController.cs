@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using api2.Account;
+using Microsoft.Extensions.Logging;
 
 namespace api2.Controllers
 {
@@ -56,7 +57,7 @@ namespace api2.Controllers
 
             var user = await userManager.FindByNameAsync(username);
             if (user == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+                return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "Invalid" });
 
             IdentityResult result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
 
@@ -66,7 +67,7 @@ namespace api2.Controllers
             }
 
             Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
+            return StatusCode(StatusCodes.Status406NotAcceptable, new Response { Status = "Error", Message = "password change fail!" }); ;
         }
 
         [HttpPut]
@@ -84,7 +85,7 @@ namespace api2.Controllers
 
             var user = await userManager.FindByNameAsync(username);
             if (user == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+                return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "User not exists!" });
 
             IdentityResult result = await userManager.SetEmailAsync(user, model.NewEmail);
 
@@ -111,7 +112,7 @@ namespace api2.Controllers
 
             var user = await userManager.FindByNameAsync(username);
             if (user == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+                return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "User not exists!" });
 
             IdentityResult result = await userManager.SetUserNameAsync(user, model.NewUsername);
 

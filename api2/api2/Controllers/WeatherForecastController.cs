@@ -43,8 +43,6 @@ namespace api2.Controllers {
                 temperatureCNumber = randomNumberGenerator.Next(-20, 55);
                 summaryNumber = randomNumberGenerator.Next(Summaries.Length);
 
-                throw new Exception("Ahhhhh! There was an error!");
-
                 return Enumerable
                     .Range(1, 5)
                     .Select(
