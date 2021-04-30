@@ -42,86 +42,37 @@ namespace api2.Controllers
             _configuration = configuration;
         }
 
-        [HttpPut]
-        [Route("change-password")]
+        [HttpPost]
+        [Route("update")]
         /// <summary>
         /// This method changes user's password after authentication.
         /// </summary>
-        /// <param name="model">A ChangePasswordModel instance for the ChangePassword function.</param>
-        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
-        {
-            Logger.LogInformation("Get request for changing passwords");
+        /// <param name="model">A Model instance for the updating account information function.</param>
+        public async Task<IActionResult> update([FromBody] T model) {
+
+            Logger.LogInformation("Get request for updating account information");
 
             string username = User.FindFirst(ClaimTypes.Name)?.Value;
 
             var user = await userManager.FindByNameAsync(username);
-            if (user == null)
+            if (user == null) {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
-
-            IdentityResult result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
-
-            if (result.Succeeded)
-            {
-                return Ok(new Response { Status = "Success", Message = "password changed successfully!" });
+            }
+            IdentityResult result;
+            if (model.NewPassword != null) {
+                result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            } else if (model.NewEmail != null) {
+                result = await userManager.SetEmailAsync(user, model.NewEmail);
+            } else if (model.NewUsername != null) {
+                result = await userManager.SetUserNameAsync(user, model.NewUsername);
+            }
+            if (result.Succeeded) {
+                return Ok(new Response { Status = "Success", Message = "Account modified successfully!" });
             }
 
             Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
-        }
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Modify account fail!" }); ;
 
-        [HttpPut]
-        [Route("change-email")]
-        /// <summary>
-        /// This method changes user's email after authentication.
-        /// </summary>
-        /// <param name="model">A ChangeEmailModel instance for the ChangeEmail function.</param>
-        public async Task<IActionResult> ChangeEmail([FromBody] ChangeEmailModel model)
-        {
-
-            Logger.LogInformation("Get request for changing email");
-
-            string username = User.FindFirst(ClaimTypes.Name)?.Value;
-
-            var user = await userManager.FindByNameAsync(username);
-            if (user == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
-
-            IdentityResult result = await userManager.SetEmailAsync(user, model.NewEmail);
-
-            if (result.Succeeded)
-            {
-                return Ok(new Response { Status = "Success", Message = "email changed successfully!" });
-            }
-
-            Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
-        }
-
-        [HttpPut]
-        [Route("change-username")]
-        /// <summary>
-        /// This method changes user's username after authentication.
-        /// </summary>
-        /// <param name="model">A ChangeUsername instance for the ChangeUsername function.</param>
-        public async Task<IActionResult> ChangeUsername([FromBody] ChangeUsername model)
-        {
-            Logger.LogInformation("Get request for changing user name");
-
-            string username = User.FindFirst(ClaimTypes.Name)?.Value;
-
-            var user = await userManager.FindByNameAsync(username);
-            if (user == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
-
-            IdentityResult result = await userManager.SetUserNameAsync(user, model.NewUsername);
-
-            if (result.Succeeded)
-            {
-                return Ok(new Response { Status = "Success", Message = "username changed successfully!" });
-            }
-
-            Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
         }
 
 
