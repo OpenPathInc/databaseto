@@ -56,10 +56,29 @@ namespace api2.Controllers
 
             int total = users.Count();
 
-            Console.WriteLine(total);
+            int total_page = total / page + 1;
+
+            if (page > total_page || page == 0)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "Page doesn't exists!" });
+            }
 
             var items = users.Skip((page - 1) * count).Take(count).ToList();
 
+            var last_page_url = "no last page";
+
+
+            if (page > 1)
+            {
+                last_page_url = "https://localhost:44353/api/super/users?count="+ count + "&page=" + (page - 1);
+            }
+
+            var next_page_url = "no next page";
+
+            if (page < total_page)
+            {
+                next_page_url = "https://localhost:44353/api/super/users?count="+count+"&page=" + (page + 1);
+            }
 
             Logger.LogInformation("Returning list of all users");
 
@@ -70,9 +89,9 @@ namespace api2.Controllers
                 page = page,
                 total = total,
 
-                last_page = "https://localhost:44353/api/super/users?count=10&page=" + (page-1),
+                last_page = last_page_url,
 
-                next_page = "https://localhost:44353/api/super/users?count=10&page=" + (page + 1),
+                next_page = next_page_url,
 
                 results = items,
 
