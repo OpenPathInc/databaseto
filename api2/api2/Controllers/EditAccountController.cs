@@ -49,7 +49,7 @@ namespace api2.Controllers
         /// This method changes user's password after authentication.
         /// </summary>
         /// <param name="model">A Model instance for the updating account information function.</param>
-        public async Task<IActionResult> update([FromBody] T model) {
+        public async Task<IActionResult> update<T>([FromBody] T model) {
 
             Logger.LogInformation("Get request for updating account information");
 
@@ -89,7 +89,7 @@ namespace api2.Controllers
             }
 
             Logger.LogError("There was a fatal error, soft message returned to user");
-            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); 
         }
 
         [HttpPut]
@@ -114,6 +114,9 @@ namespace api2.Controllers
             {
                 return Ok(new Response { Status = "Success", Message = "username changed successfully!" });
             }
+
+            Logger.LogError("There was a fatal error, soft message returned to user");
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); 
 
         }
 
