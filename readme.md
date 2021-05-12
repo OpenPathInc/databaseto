@@ -10,6 +10,8 @@
   - [SeedUsers(userManager,roleManager)](#M-api2-Authentication-ApplicationDbInitializer-SeedUsers-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole}- 'api2.Authentication.ApplicationDbInitializer.SeedUsers(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole})')
   - [generatePassword(userManager)](#M-api2-Authentication-ApplicationDbInitializer-generatePassword-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser}- 'api2.Authentication.ApplicationDbInitializer.generatePassword(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser})')
 - [ApplicationUser](#T-api2-Authentication-ApplicationUser 'api2.Authentication.ApplicationUser')
+- [AuthenticateController](#T-api2-Controllers-AuthenticateController 'api2.Controllers.AuthenticateController')
+  - [#ctor(userManager,roleManager,configuration,loggerFactory)](#M-api2-Controllers-AuthenticateController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.AuthenticateController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)')
 - [ChangeEmailModel](#T-api2-Account-ChangeEmailModel 'api2.Account.ChangeEmailModel')
   - [NewEmail](#P-api2-Account-ChangeEmailModel-NewEmail 'api2.Account.ChangeEmailModel.NewEmail')
 - [ChangePasswordModel](#T-api2-Account-ChangePasswordModel 'api2.Account.ChangePasswordModel')
@@ -17,6 +19,17 @@
   - [NewPassword](#P-api2-Account-ChangePasswordModel-NewPassword 'api2.Account.ChangePasswordModel.NewPassword')
 - [ChangeUsername](#T-api2-Account-ChangeUsername 'api2.Account.ChangeUsername')
   - [NewUsername](#P-api2-Account-ChangeUsername-NewUsername 'api2.Account.ChangeUsername.NewUsername')
+- [DatabaseToBaseController](#T-api2-Controllers-DatabaseToBaseController 'api2.Controllers.DatabaseToBaseController')
+  - [#ctor()](#M-api2-Controllers-DatabaseToBaseController-#ctor-Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.DatabaseToBaseController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)')
+  - [_loggerFactory](#F-api2-Controllers-DatabaseToBaseController-_loggerFactory 'api2.Controllers.DatabaseToBaseController._loggerFactory')
+  - [Logger](#P-api2-Controllers-DatabaseToBaseController-Logger 'api2.Controllers.DatabaseToBaseController.Logger')
+- [EditAccountController](#T-api2-Controllers-EditAccountController 'api2.Controllers.EditAccountController')
+  - [#ctor(userManager,roleManager,configuration,loggerFactory)](#M-api2-Controllers-EditAccountController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.EditAccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)')
+- [EditAccountModel](#T-api2-Account-EditAccountModel 'api2.Account.EditAccountModel')
+  - [CurrentPassword](#P-api2-Account-EditAccountModel-CurrentPassword 'api2.Account.EditAccountModel.CurrentPassword')
+  - [NewEmail](#P-api2-Account-EditAccountModel-NewEmail 'api2.Account.EditAccountModel.NewEmail')
+  - [NewPassword](#P-api2-Account-EditAccountModel-NewPassword 'api2.Account.EditAccountModel.NewPassword')
+  - [NewUsername](#P-api2-Account-EditAccountModel-NewUsername 'api2.Account.EditAccountModel.NewUsername')
 - [LoginModel](#T-api2-Authentication-LoginModel 'api2.Authentication.LoginModel')
   - [Password](#P-api2-Authentication-LoginModel-Password 'api2.Authentication.LoginModel.Password')
   - [Username](#P-api2-Authentication-LoginModel-Username 'api2.Authentication.LoginModel.Username')
@@ -25,6 +38,8 @@
   - [Password](#P-api2-Authentication-RegisterModel-Password 'api2.Authentication.RegisterModel.Password')
   - [Username](#P-api2-Authentication-RegisterModel-Username 'api2.Authentication.RegisterModel.Username')
 - [Response](#T-api2-Authentication-Response 'api2.Authentication.Response')
+- [SuperController](#T-api2-Controllers-SuperController 'api2.Controllers.SuperController')
+  - [#ctor()](#M-api2-Controllers-SuperController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.SuperController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.Extensions.Logging.ILoggerFactory)')
 - [UserAccount](#T-api2-Account-UserAccount 'api2.Account.UserAccount')
   - [#ctor(username,email)](#M-api2-Account-UserAccount-#ctor-System-String,System-String- 'api2.Account.UserAccount.#ctor(System.String,System.String)')
   - [Email](#P-api2-Account-UserAccount-Email 'api2.Account.UserAccount.Email')
@@ -121,6 +136,29 @@ api2.Authentication
 
 This class is the User class of this application, which is inherited from IdentityUser class in Microsoft.AspNetCore.Identity
 
+<a name='T-api2-Controllers-AuthenticateController'></a>
+## AuthenticateController `type`
+
+##### Namespace
+
+api2.Controllers
+
+<a name='M-api2-Controllers-AuthenticateController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory-'></a>
+### #ctor(userManager,roleManager,configuration,loggerFactory) `constructor`
+
+##### Summary
+
+This is the constructor for our AuthenticateController Class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| userManager | [Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}](#T-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser} 'Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}') | An instance of Microsoft.AspNetCore.Identity's UserManager class. |
+| roleManager | [Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}](#T-Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole} 'Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}') | An instance of Microsoft.AspNetCore.Identity's RoleManager class. |
+| configuration | [Microsoft.Extensions.Configuration.IConfiguration](#T-Microsoft-Extensions-Configuration-IConfiguration 'Microsoft.Extensions.Configuration.IConfiguration') | The configuration. |
+| loggerFactory | [Microsoft.Extensions.Logging.ILoggerFactory](#T-Microsoft-Extensions-Logging-ILoggerFactory 'Microsoft.Extensions.Logging.ILoggerFactory') | An instance that creates a logger. |
+
 <a name='T-api2-Account-ChangeEmailModel'></a>
 ## ChangeEmailModel `type`
 
@@ -176,6 +214,104 @@ api2.Account
 Component model for changing the username
 
 <a name='P-api2-Account-ChangeUsername-NewUsername'></a>
+### NewUsername `property`
+
+##### Summary
+
+This is the new username
+
+<a name='T-api2-Controllers-DatabaseToBaseController'></a>
+## DatabaseToBaseController `type`
+
+##### Namespace
+
+api2.Controllers
+
+##### Summary
+
+This creates the DatabaseToBaseController Class.
+
+<a name='M-api2-Controllers-DatabaseToBaseController-#ctor-Microsoft-Extensions-Logging-ILoggerFactory-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+This is the constructor for the DatabaseToBaseController Class
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-api2-Controllers-DatabaseToBaseController-_loggerFactory'></a>
+### _loggerFactory `constants`
+
+##### Summary
+
+An instance that creates logger for us.
+
+<a name='P-api2-Controllers-DatabaseToBaseController-Logger'></a>
+### Logger `property`
+
+##### Summary
+
+A logger that can show us messages about our project.
+
+<a name='T-api2-Controllers-EditAccountController'></a>
+## EditAccountController `type`
+
+##### Namespace
+
+api2.Controllers
+
+<a name='M-api2-Controllers-EditAccountController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory-'></a>
+### #ctor(userManager,roleManager,configuration,loggerFactory) `constructor`
+
+##### Summary
+
+This is the constructor for our EditAccountController Class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| userManager | [Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}](#T-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser} 'Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}') | An instance of Microsoft.AspNetCore.Identity's UserManager class. |
+| roleManager | [Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}](#T-Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole} 'Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}') | An instance of Microsoft.AspNetCore.Identity's RoleManager class. |
+| configuration | [Microsoft.Extensions.Configuration.IConfiguration](#T-Microsoft-Extensions-Configuration-IConfiguration 'Microsoft.Extensions.Configuration.IConfiguration') | The configuration. |
+| loggerFactory | [Microsoft.Extensions.Logging.ILoggerFactory](#T-Microsoft-Extensions-Logging-ILoggerFactory 'Microsoft.Extensions.Logging.ILoggerFactory') | An instance that creates a logger. |
+
+<a name='T-api2-Account-EditAccountModel'></a>
+## EditAccountModel `type`
+
+##### Namespace
+
+api2.Account
+
+##### Summary
+
+Component model for changing the password
+
+<a name='P-api2-Account-EditAccountModel-CurrentPassword'></a>
+### CurrentPassword `property`
+
+##### Summary
+
+This is the current password
+
+<a name='P-api2-Account-EditAccountModel-NewEmail'></a>
+### NewEmail `property`
+
+##### Summary
+
+This is the new email address
+
+<a name='P-api2-Account-EditAccountModel-NewPassword'></a>
+### NewPassword `property`
+
+##### Summary
+
+This is the new password
+
+<a name='P-api2-Account-EditAccountModel-NewUsername'></a>
 ### NewUsername `property`
 
 ##### Summary
@@ -249,6 +385,24 @@ api2.Authentication
 ##### Summary
 
 This is the component model for api response
+
+<a name='T-api2-Controllers-SuperController'></a>
+## SuperController `type`
+
+##### Namespace
+
+api2.Controllers
+
+<a name='M-api2-Controllers-SuperController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-Extensions-Logging-ILoggerFactory-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+This is the constructor for the SuperController Class
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='T-api2-Account-UserAccount'></a>
 ## UserAccount `type`

@@ -39,6 +39,31 @@
             This is the new username
             </summary>
         </member>
+        <member name="T:api2.Account.EditAccountModel">
+            <summary>
+            Component model for changing the password
+            </summary>
+        </member>
+        <member name="P:api2.Account.EditAccountModel.CurrentPassword">
+            <summary>
+            This is the current password 
+            </summary>
+        </member>
+        <member name="P:api2.Account.EditAccountModel.NewPassword">
+            <summary>
+            This is the new password
+            </summary>
+        </member>
+        <member name="P:api2.Account.EditAccountModel.NewUsername">
+            <summary>
+            This is the new username
+            </summary>
+        </member>
+        <member name="P:api2.Account.EditAccountModel.NewEmail">
+            <summary>
+            This is the new email address
+            </summary>
+        </member>
         <member name="T:api2.Account.UserAccount">
             <summary>
             This class is used to manage the users name and email.
@@ -184,6 +209,7 @@
             <param name="userManager">An instance of Microsoft.AspNetCore.Identity's UserManager class.</param>
             <param name="roleManager">An instance of Microsoft.AspNetCore.Identity's RoleManager class.</param>
             <param name="configuration">The configuration.</param>
+            <param name="loggerFactory">An instance that creates a logger.</param>
         </member>
         <member name="M:api2.Controllers.SuperController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>

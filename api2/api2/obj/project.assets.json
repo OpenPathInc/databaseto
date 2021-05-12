@@ -7066,19 +7066,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\totti\\.nuget\\packages\\": {}
+    "C:\\Users\\stlp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\totti\\Documents\\openpath\\databaseto\\api2\\api2\\api2.csproj",
+      "projectUniqueName": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj",
       "projectName": "api2",
-      "projectPath": "C:\\Users\\totti\\Documents\\openpath\\databaseto\\api2\\api2\\api2.csproj",
-      "packagesPath": "C:\\Users\\totti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\totti\\Documents\\openpath\\databaseto\\api2\\api2\\obj\\",
+      "projectPath": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj",
+      "packagesPath": "C:\\Users\\stlp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\totti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stlp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7175,7 +7175,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
