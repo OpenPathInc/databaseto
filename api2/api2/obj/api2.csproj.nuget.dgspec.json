@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj": {}
+    "C:\\src\\databaseto\\api2\\api2\\api2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj": {
+    "C:\\src\\databaseto\\api2\\api2\\api2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj",
+        "projectUniqueName": "C:\\src\\databaseto\\api2\\api2\\api2.csproj",
         "projectName": "api2",
-        "projectPath": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\api2.csproj",
-        "packagesPath": "C:\\Users\\stlp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stlp\\Desktop\\databaseto\\api2\\api2\\obj\\",
+        "projectPath": "C:\\src\\databaseto\\api2\\api2\\api2.csproj",
+        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+        "outputPath": "C:\\src\\databaseto\\api2\\api2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\stlp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,11 +25,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/openpathinc/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +41,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -111,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
