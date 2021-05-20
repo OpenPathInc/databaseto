@@ -51,7 +51,32 @@ namespace api2.Controllers
         /// This method changes user's password after authentication.
         /// </summary>
         /// <param name="model">A Model instance for the updating account information function.</param>
+<<<<<<< HEAD
         public async Task<IActionResult> update([FromBody] EditAccountModel model)
+=======
+        public async Task<IActionResult> update<T>([FromBody] T model) {
+
+            Logger.LogInformation("Get request for updating account information");
+
+            string username = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            var user = await userManager.FindByNameAsync(username);
+            if (user == null) {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+            }
+
+            Logger.LogError("There was a fatal error, soft message returned to user");
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); ;
+        }
+
+        [HttpPut]
+        [Route("change-email")]
+        /// <summary>
+        /// This method changes user's email after authentication.
+        /// </summary>
+        /// <param name="model">A ChangeEmailModel instance for the ChangeEmail function.</param>
+        public async Task<IActionResult> ChangeEmail([FromBody] ChangeEmailModel model)
+>>>>>>> jason
         {
 
             Logger.LogInformation("Get request for updating account information");
@@ -68,6 +93,7 @@ namespace api2.Controllers
             {
                 result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
             }
+<<<<<<< HEAD
             else if (model.NewEmail != null)
             {
                 result = await userManager.SetEmailAsync(user, model.NewEmail);
@@ -82,13 +108,42 @@ namespace api2.Controllers
                 return StatusCode(StatusCodes.Status404NotFound, new Response { Status = "Error", Message = "Missing info to change!" });
             }
             
+=======
+
+            Logger.LogError("There was a fatal error, soft message returned to user");
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); 
+        }
+
+        [HttpPut]
+        [Route("change-username")]
+        /// <summary>
+        /// This method changes user's username after authentication.
+        /// </summary>
+        /// <param name="model">A ChangeUsername instance for the ChangeUsername function.</param>
+        public async Task<IActionResult> ChangeUsername([FromBody] ChangeUsername model)
+        {
+            Logger.LogInformation("Get request for changing user name");
+
+            string username = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            var user = await userManager.FindByNameAsync(username);
+            if (user == null)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not exists!" });
+
+            IdentityResult result = await userManager.SetUserNameAsync(user, model.NewUsername);
+
+>>>>>>> jason
             if (result.Succeeded)
             {
                 return Ok(new Response { Status = "Success", Message = "Account modified successfully!" });
             }
 
             Logger.LogError("There was a fatal error, soft message returned to user");
+<<<<<<< HEAD
             return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Modify account fail!" });
+=======
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "password change fail!" }); 
+>>>>>>> jason
 
         }
 

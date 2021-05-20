@@ -24,12 +24,16 @@
   - [_loggerFactory](#F-api2-Controllers-DatabaseToBaseController-_loggerFactory 'api2.Controllers.DatabaseToBaseController._loggerFactory')
   - [Logger](#P-api2-Controllers-DatabaseToBaseController-Logger 'api2.Controllers.DatabaseToBaseController.Logger')
 - [EditAccountController](#T-api2-Controllers-EditAccountController 'api2.Controllers.EditAccountController')
+<<<<<<< HEAD
   - [#ctor(userManager,roleManager,configuration,loggerFactory)](#M-api2-Controllers-EditAccountController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.EditAccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)')
 - [EditAccountModel](#T-api2-Account-EditAccountModel 'api2.Account.EditAccountModel')
   - [CurrentPassword](#P-api2-Account-EditAccountModel-CurrentPassword 'api2.Account.EditAccountModel.CurrentPassword')
   - [NewEmail](#P-api2-Account-EditAccountModel-NewEmail 'api2.Account.EditAccountModel.NewEmail')
   - [NewPassword](#P-api2-Account-EditAccountModel-NewPassword 'api2.Account.EditAccountModel.NewPassword')
   - [NewUsername](#P-api2-Account-EditAccountModel-NewUsername 'api2.Account.EditAccountModel.NewUsername')
+=======
+  - [#ctor(userManager,roleManager,configuration)](#M-api2-Controllers-EditAccountController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory- 'api2.Controllers.EditAccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)')
+>>>>>>> jason
 - [LoginModel](#T-api2-Authentication-LoginModel 'api2.Authentication.LoginModel')
   - [Password](#P-api2-Authentication-LoginModel-Password 'api2.Authentication.LoginModel.Password')
   - [Username](#P-api2-Authentication-LoginModel-Username 'api2.Authentication.LoginModel.Username')
@@ -264,7 +268,11 @@ A logger that can show us messages about our project.
 api2.Controllers
 
 <a name='M-api2-Controllers-EditAccountController-#ctor-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser},Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole},Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILoggerFactory-'></a>
+<<<<<<< HEAD
 ### #ctor(userManager,roleManager,configuration,loggerFactory) `constructor`
+=======
+### #ctor(userManager,roleManager,configuration) `constructor`
+>>>>>>> jason
 
 ##### Summary
 
@@ -277,6 +285,7 @@ This is the constructor for our EditAccountController Class.
 | userManager | [Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}](#T-Microsoft-AspNetCore-Identity-UserManager{api2-Authentication-ApplicationUser} 'Microsoft.AspNetCore.Identity.UserManager{api2.Authentication.ApplicationUser}') | An instance of Microsoft.AspNetCore.Identity's UserManager class. |
 | roleManager | [Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}](#T-Microsoft-AspNetCore-Identity-RoleManager{Microsoft-AspNetCore-Identity-IdentityRole} 'Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole}') | An instance of Microsoft.AspNetCore.Identity's RoleManager class. |
 | configuration | [Microsoft.Extensions.Configuration.IConfiguration](#T-Microsoft-Extensions-Configuration-IConfiguration 'Microsoft.Extensions.Configuration.IConfiguration') | The configuration. |
+<<<<<<< HEAD
 | loggerFactory | [Microsoft.Extensions.Logging.ILoggerFactory](#T-Microsoft-Extensions-Logging-ILoggerFactory 'Microsoft.Extensions.Logging.ILoggerFactory') | An instance that creates a logger. |
 
 <a name='T-api2-Account-EditAccountModel'></a>
@@ -317,6 +326,8 @@ This is the new password
 ##### Summary
 
 This is the new username
+=======
+>>>>>>> jason
 
 <a name='T-api2-Authentication-LoginModel'></a>
 ## LoginModel `type`
