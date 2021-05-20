@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Database2.Repository {
+namespace ClassLibrary1 {
     public class Class1 {
     }
 }
