@@ -53,6 +53,7 @@ namespace Database2.Repository {
         }
 
         public DbSet<DatabaseTo.Model.Data.DatabaseConnection> DatabaseConnections { get; set; }
+        public DbSet<DatabaseTo.Model.Data.Query> Queries { get; set; }
 
     }
 

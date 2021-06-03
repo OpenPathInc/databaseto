@@ -154,3 +154,14 @@ C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\S
 C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.AspNetCore.dll
 C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.Extensions.Logging.dll
 C:\Users\totti\Documents\openpath\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Sentry.NLog.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\DatabaseTo.Model.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\DatabaseTo.Repository.dll
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\DatabaseTo.Model.pdb
+C:\src\databaseto\api2\api2\bin\Debug\netcoreapp3.1\DatabaseTo.Repository.pdb

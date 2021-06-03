@@ -22,6 +22,11 @@ namespace DatabaseTo.Model.Data {
         [MaxLength(255)]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Description of the connection string.
+        /// </summary>
+        public string Description { get; set; }
+
     }
 
 }
