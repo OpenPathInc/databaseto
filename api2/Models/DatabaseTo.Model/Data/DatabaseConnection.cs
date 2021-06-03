@@ -14,13 +14,13 @@ namespace DatabaseTo.Model.Data {
         /// The unique id for this database connection.
         /// </summary>
         [Key]
-        long Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// A name for this database connection.
         /// </summary>
         [MaxLength(255)]
-        string Name { get; set; }
+        public string Name { get; set; }
 
     }
 

@@ -10,6 +10,13 @@ namespace Database2.Repository {
         private protected string _connectionString;
 
         public DatabaseToDbContext(
+        ) : base() {
+
+            _connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=databasetoDB;Integrated Security=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        }
+
+        public DatabaseToDbContext(
             string connectionString
         ) : base() {
 
